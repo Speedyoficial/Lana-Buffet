@@ -37,7 +37,12 @@
             overflow-x: hidden;
         }
 
-        /* Preloader */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Preloader - Garantido que apareça */
         .preloader {
             position: fixed;
             top: 0;
@@ -49,8 +54,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            z-index: 99999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
         }
 
         .preloader.hidden {
@@ -60,43 +65,44 @@
         }
 
         .preloader-logo {
-            width: 200px;
-            height: 200px;
+            width: 220px;
+            height: auto;
             margin-bottom: 30px;
             animation: pulseLogo 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px rgba(218, 165, 32, 0.3));
+            filter: drop-shadow(0 0 30px rgba(218, 165, 32, 0.5));
         }
 
         @keyframes pulseLogo {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
         }
 
         .preloader-text {
             color: var(--gold);
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            animation: fadeInOut 2s ease-in-out infinite;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            margin-top: 20px;
+            animation: fadeInOut 1.5s ease-in-out infinite;
         }
 
         .loading-bar {
-            width: 200px;
-            height: 3px;
+            width: 250px;
+            height: 4px;
             background: rgba(218, 165, 32, 0.2);
             border-radius: 3px;
-            margin-top: 20px;
+            margin-top: 30px;
             overflow: hidden;
             position: relative;
         }
 
         .loading-progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
             border-radius: 3px;
             width: 0%;
             animation: loading 2s ease-in-out infinite;
-            box-shadow: 0 0 10px var(--gold);
+            box-shadow: 0 0 15px var(--gold);
         }
 
         @keyframes loading {
@@ -106,44 +112,48 @@
         }
 
         @keyframes fadeInOut {
-            0%, 100% { opacity: 0.5; }
+            0%, 100% { opacity: 0.4; }
             50% { opacity: 1; }
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-
-        /* WhatsApp Float - Sem traço */
+        /* WhatsApp Float - SEM TRAÇO */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 30px;
+            font-size: 32px;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
-            text-decoration: none;
+            text-decoration: none !important;
+            border: none;
+            outline: none;
+            cursor: pointer;
         }
 
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+            text-decoration: none !important;
+        }
+
+        .whatsapp-float:focus {
+            outline: none;
+            text-decoration: none !important;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
         }
 
         /* Navigation */
@@ -171,14 +181,21 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            text-decoration: none;
+            text-decoration: none !important;
+            border: none;
+            outline: none;
+        }
+
+        .logo:hover, .logo:focus, .logo:active {
+            text-decoration: none !important;
+            outline: none;
         }
 
         .logo-img {
-            height: 50px;
+            height: 55px;
             width: auto;
             transition: all 0.3s;
-            filter: brightness(0) invert(1);
+            filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
 
         nav.scrolled .logo-img {
@@ -191,6 +208,12 @@
             font-weight: 700;
             color: var(--white);
             transition: color 0.3s;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        .logo:hover .logo-text {
+            text-decoration: none !important;
         }
 
         nav.scrolled .logo-text {
@@ -233,7 +256,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.8), rgba(47, 79, 79, 0.8)), url('/mnt/kimi/upload/1000081576.jpg');
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.85), rgba(47, 79, 79, 0.85)), url('assets/images/1000081576.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -262,10 +285,16 @@
         }
 
         .hero-logo {
-            width: 180px;
+            width: 200px;
             height: auto;
             margin-bottom: 30px;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero h1 {
@@ -285,16 +314,17 @@
             display: inline-block;
             background: var(--gold);
             color: var(--dark);
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-radius: 50px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             animation: glow 2s ease-in-out infinite alternate;
+            font-size: 1.1rem;
         }
 
         @keyframes glow {
             from { box-shadow: 0 0 10px var(--gold); }
-            to { box-shadow: 0 0 20px var(--gold), 0 0 30px var(--gold); }
+            to { box-shadow: 0 0 25px var(--gold), 0 0 40px var(--gold); }
         }
 
         .btn-primary {
@@ -331,7 +361,7 @@
         /* Instagram Highlight Section */
         .instagram-highlight {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             color: white;
             position: relative;
@@ -703,10 +733,10 @@
         }
 
         .footer-logo {
-            width: 120px;
+            width: 140px;
             height: auto;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px rgba(218, 165, 32, 0.3));
+            filter: drop-shadow(0 0 15px rgba(218, 165, 32, 0.4));
         }
 
         .footer-links {
@@ -735,17 +765,18 @@
         }
 
         .social-links a {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             transition: all 0.3s;
-            text-decoration: none;
+            text-decoration: none !important;
+            border: none;
         }
 
         .social-links a:hover {
@@ -807,7 +838,7 @@
             }
 
             .hero-logo {
-                width: 140px;
+                width: 150px;
             }
 
             .nav-links {
@@ -815,11 +846,11 @@
             }
 
             .logo-img {
-                height: 40px;
+                height: 45px;
             }
 
             .logo-text {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
 
             .about-content,
@@ -836,16 +867,19 @@
             }
 
             .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
                 bottom: 20px;
                 right: 20px;
             }
 
             .preloader-logo {
-                width: 150px;
-                height: 150px;
+                width: 160px;
+            }
+
+            .preloader-text {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -854,22 +888,22 @@
 
     <!-- Preloader -->
     <div class="preloader" id="preloader">
-        <img src="/mnt/kimi/upload/image.png" alt="Lana Buffet Logo" class="preloader-logo">
+        <img src="assets/images/logo.png" alt="Lana Buffet Logo" class="preloader-logo">
         <div class="preloader-text">CARREGANDO...</div>
         <div class="loading-bar">
             <div class="loading-progress"></div>
         </div>
     </div>
 
-    <!-- WhatsApp Float - Sem traço -->
-    <a href="https://wa.me/5549998098800" class="whatsapp-float" target="_blank">
+    <!-- WhatsApp Float - SEM TRAÇO -->
+    <a href="https://wa.me/5549998098800" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Navigation -->
     <nav id="navbar">
-        <a href="#" class="logo">
-            <img src="/mnt/kimi/upload/image.png" alt="Lana Buffet" class="logo-img">
+        <a href="#" class="logo" aria-label="Lana Buffet Home">
+            <img src="assets/images/logo.png" alt="Lana Buffet" class="logo-img">
             <span class="logo-text">Lana Buffet</span>
         </a>
         <ul class="nav-links">
@@ -884,7 +918,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <img src="/mnt/kimi/upload/image.png" alt="Lana Buffet Logo" class="hero-logo">
+            <img src="assets/images/logo.png" alt="Lana Buffet Logo" class="hero-logo">
             <div class="badge-24h">
                 <i class="fas fa-clock"></i> Atendimento 24 Horas
             </div>
@@ -919,128 +953,128 @@
             <p>Conheça um pouco do nosso trabalho e delicie-se com nossas criações</p>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081549.jpg')">
-                <img src="/mnt/kimi/upload/1000081549.jpg" alt="Mesa de buffet decorada">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081549.jpg')">
+                <img src="assets/images/1000081549.jpg" alt="Mesa de buffet decorada">
                 <div class="gallery-overlay">
                     <span>Mesa de Festa</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081552.jpg')">
-                <img src="/mnt/kimi/upload/1000081552.jpg" alt="Buffet completo">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081552.jpg')">
+                <img src="assets/images/1000081552.jpg" alt="Buffet completo">
                 <div class="gallery-overlay">
                     <span>Buffet Completo</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081555.jpg')">
-                <img src="/mnt/kimi/upload/1000081555.jpg" alt="Frutas decorativas">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081555.jpg')">
+                <img src="assets/images/1000081555.jpg" alt="Frutas decorativas">
                 <div class="gallery-overlay">
                     <span>Frutas Decorativas</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081558.jpg')">
-                <img src="/mnt/kimi/upload/1000081558.jpg" alt="Laranjas decoradas">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081558.jpg')">
+                <img src="assets/images/1000081558.jpg" alt="Laranjas decoradas">
                 <div class="gallery-overlay">
                     <span>Decoração Frutas</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081561.jpg')">
-                <img src="/mnt/kimi/upload/1000081561.jpg" alt="Salgados finos">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081561.jpg')">
+                <img src="assets/images/1000081561.jpg" alt="Salgados finos">
                 <div class="gallery-overlay">
                     <span>Salgados Finos</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081564.jpg')">
-                <img src="/mnt/kimi/upload/1000081564.jpg" alt="Canapés">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081564.jpg')">
+                <img src="assets/images/1000081564.jpg" alt="Canapés">
                 <div class="gallery-overlay">
                     <span>Canapés Especiais</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081567.jpg')">
-                <img src="/mnt/kimi/upload/1000081567.jpg" alt="Bruschettas">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081567.jpg')">
+                <img src="assets/images/1000081567.jpg" alt="Bruschettas">
                 <div class="gallery-overlay">
                     <span>Bruschettas</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081570.jpg')">
-                <img src="/mnt/kimi/upload/1000081570.jpg" alt="Escondidinho">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081570.jpg')">
+                <img src="assets/images/1000081570.jpg" alt="Escondidinho">
                 <div class="gallery-overlay">
                     <span>Escondidinho</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081573.jpg')">
-                <img src="/mnt/kimi/upload/1000081573.jpg" alt="Mesa de pratos">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081573.jpg')">
+                <img src="assets/images/1000081573.jpg" alt="Mesa de pratos">
                 <div class="gallery-overlay">
                     <span>Organização</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081576.jpg')">
-                <img src="/mnt/kimi/upload/1000081576.jpg" alt="Buffet quente">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081576.jpg')">
+                <img src="assets/images/1000081576.jpg" alt="Buffet quente">
                 <div class="gallery-overlay">
                     <span>Buffet Quente</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081579.jpg')">
-                <img src="/mnt/kimi/upload/1000081579.jpg" alt="Saladas">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081579.jpg')">
+                <img src="assets/images/1000081579.jpg" alt="Saladas">
                 <div class="gallery-overlay">
                     <span>Saladas Especiais</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081582.jpg')">
-                <img src="/mnt/kimi/upload/1000081582.jpg" alt="Canapés e bolo">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081582.jpg')">
+                <img src="assets/images/1000081582.jpg" alt="Canapés e bolo">
                 <div class="gallery-overlay">
                     <span>Mesa de Frios</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081585.jpg')">
-                <img src="/mnt/kimi/upload/1000081585.jpg" alt="Decoração mesa">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081585.jpg')">
+                <img src="assets/images/1000081585.jpg" alt="Decoração mesa">
                 <div class="gallery-overlay">
                     <span>Decoração</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081588.jpg')">
-                <img src="/mnt/kimi/upload/1000081588.jpg" alt="Costela">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081588.jpg')">
+                <img src="assets/images/1000081588.jpg" alt="Costela">
                 <div class="gallery-overlay">
                     <span>Costela ao Fogo</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081613.jpg')">
-                <img src="/mnt/kimi/upload/1000081613.jpg" alt="Guacamole">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081613.jpg')">
+                <img src="assets/images/1000081613.jpg" alt="Guacamole">
                 <div class="gallery-overlay">
                     <span>Mexicano</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081614.jpg')">
-                <img src="/mnt/kimi/upload/1000081614.jpg" alt="Mini pizzas">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081614.jpg')">
+                <img src="assets/images/1000081614.jpg" alt="Mini pizzas">
                 <div class="gallery-overlay">
                     <span>Mini Pizzas</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081615.jpg')">
-                <img src="/mnt/kimi/upload/1000081615.jpg" alt="Mesa completa">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081615.jpg')">
+                <img src="assets/images/1000081615.jpg" alt="Mesa completa">
                 <div class="gallery-overlay">
                     <span>Mesa Completa</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081616.jpg')">
-                <img src="/mnt/kimi/upload/1000081616.jpg" alt="Buffet lateral">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081616.jpg')">
+                <img src="assets/images/1000081616.jpg" alt="Buffet lateral">
                 <div class="gallery-overlay">
                     <span>Buffet Lateral</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081617.jpg')">
-                <img src="/mnt/kimi/upload/1000081617.jpg" alt="Tartaletas">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081617.jpg')">
+                <img src="assets/images/1000081617.jpg" alt="Tartaletas">
                 <div class="gallery-overlay">
                     <span>Tartaletas</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081618.jpg')">
-                <img src="/mnt/kimi/upload/1000081618.jpg" alt="Espetos de fruta">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081618.jpg')">
+                <img src="assets/images/1000081618.jpg" alt="Espetos de fruta">
                 <div class="gallery-overlay">
                     <span>Espetos de Fruta</span>
                 </div>
             </div>
-            <div class="gallery-item" onclick="openLightbox('/mnt/kimi/upload/1000081619.jpg')">
-                <img src="/mnt/kimi/upload/1000081619.jpg" alt="Trouxinhas">
+            <div class="gallery-item" onclick="openLightbox('assets/images/1000081619.jpg')">
+                <img src="assets/images/1000081619.jpg" alt="Trouxinhas">
                 <div class="gallery-overlay">
                     <span>Trouxinhas</span>
                 </div>
@@ -1091,7 +1125,7 @@
                 </div>
             </div>
             <div class="about-image">
-                <img src="/mnt/kimi/upload/1000081616.jpg" alt="Lana Buffet - Mesa completa">
+                <img src="assets/images/1000081616.jpg" alt="Lana Buffet - Mesa completa">
             </div>
         </div>
     </section>
@@ -1203,7 +1237,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <img src="/mnt/kimi/upload/image.png" alt="Lana Buffet" class="footer-logo">
+            <img src="assets/images/logo.png" alt="Lana Buffet" class="footer-logo">
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#galeria">Galeria</a>
@@ -1212,13 +1246,13 @@
                 <a href="#contato">Contato</a>
             </div>
             <div class="social-links">
-                <a href="https://wa.me/5549998098800" target="_blank">
+                <a href="https://wa.me/5549998098800" target="_blank" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="https://www.instagram.com/lanabuffet_?igsh=OGtramd4NDM5MXdu" target="_blank">
+                <a href="https://www.instagram.com/lanabuffet_?igsh=OGtramd4NDM5MXdu" target="_blank" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="mailto:buffetlanas@gmail.com">
+                <a href="mailto:buffetlanas@gmail.com" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -1236,11 +1270,19 @@
     </div>
 
     <script>
-        // Preloader
+        // Preloader - Garante que fique visível por pelo menos 2.5 segundos
         window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            
+            // Tempo mínimo de exibição do preloader (2.5 segundos)
             setTimeout(function() {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 2000); // Mostra o preloader por 2 segundos
+                preloader.classList.add('hidden');
+                
+                // Remove do DOM após a transição
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                }, 800);
+            }, 2500);
         });
 
         // Navbar scroll effect
